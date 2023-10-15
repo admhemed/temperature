@@ -7,6 +7,14 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitOverride": true,
+    "paths": {
+      "gauge": [
+        "dist/gauge"
+      ],
+      "gauge-component": [
+        "dist/gauge-component"
+      ]
+    },
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,

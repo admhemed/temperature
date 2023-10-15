@@ -99,6 +99,72 @@
           }
         }
       }
+    },
+    "gauge-component": {
+      "projectType": "library",
+      "root": "projects/gauge-component",
+      "sourceRoot": "projects/gauge-component/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/gauge-component/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/gauge-component/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/gauge-component/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/gauge-component/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    },
+    "gauge": {
+      "projectType": "library",
+      "root": "projects/gauge",
+      "sourceRoot": "projects/gauge/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/gauge/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/gauge/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/gauge/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/gauge/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
     }
   }
 }

@@ -1,0 +1,71 @@
+<!-- 
+  GaugeComponent Template
+
+  This template includes SVG to render the gauge and
+  utilizes Angular's conditional rendering and property binding.
+  
+  The 'invalidInputTemplate' displays an error message when invalid inputs are provided.
+-->
+<ng-container
+  *ngIf="isValidInput; else invalidInputTemplate"
+  role="presentation"
+  aria-label="Temperature gauge"
+>
+  <div
+    class="gauge-container"
+    [ngClass]="customClass"
+    [style.width.px]="width"
+    [style.height.px]="width"
+  >
+    <svg
+      [attr.viewBox]="'0 0 ' + viewSize + ' ' + viewSize"
+      role="img"
+      aria-labelledby="gaugeTitle"
+    >
+      <title id="gaugeTitle">Gauge indicating temperatures</title>
+
+      <circle
+        [attr.cx]="radius + 5"
+        [attr.cy]="radius + 5"
+        [attr.r]="radius"
+        stroke="black"
+        stroke-width="2"
+        fill="white"
+      ></circle>
+
+      <line
+        [attr.x1]="minDegreeCoordinates.x1"
+        [attr.y1]="minDegreeCoordinates.y1"
+        [attr.x2]="minDegreeCoordinates.x2"
+        [attr.y2]="minDegreeCoordinates.y2"
+        stroke="blue"
+        stroke-width="5"
+      ></line>
+      <line
+        [attr.x1]="maxDegreeCoordinates.x1"
+        [attr.y1]="maxDegreeCoordinates.y1"
+        [attr.x2]="maxDegreeCoordinates.x2"
+        [attr.y2]="maxDegreeCoordinates.y2"
+        stroke="red"
+        stroke-width="5"
+      ></line>
+      <line
+        [attr.x1]="targetDegreeCoordinates.x1"
+        [attr.y1]="targetDegreeCoordinates.y1"
+        [attr.x2]="targetDegreeCoordinates.x2"
+        [attr.y2]="targetDegreeCoordinates.y2"
+        stroke="green"
+        stroke-width="4"
+      ></line>
+    </svg>
+    <div class="number-under-gauge" role="status" aria-live="polite">
+      {{ targetTemperature }}°C
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #invalidInputTemplate>
+  <div class="invalid-input" role="alert">
+    <p>{{ errorMessage }}</p>
+  </div>
+</ng-template>

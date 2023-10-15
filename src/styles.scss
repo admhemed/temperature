@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+/* In some global stylesheet or component's encapsulated stylesheet */
+.my-custom-class .min-tick {
+  stroke: #00f;
+}
+
+.my-custom-class .max-tick {
+  stroke: #f0f;
+}
+
+.my-custom-class .target-tick {
+  stroke: #0f0;
+}
+
+.my-custom-class .number-under-gauge {
+  font-size: 3em;
+}
